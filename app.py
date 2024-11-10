@@ -58,14 +58,9 @@ def create_presentation(slide_data):
 def create_ppt():
     """API route to create a PPT from JSON data and upload to Cloudinary."""
     try:
-        # Get Cloudinary credentials from request body
-        cloud_config = request.json.get('cloudinary_config')
-        if not cloud_config:
-            return jsonify({"error": "Cloudinary configuration is required"}), 400
-        
-        cloud_name = cloud_config.get('cloud_name')
-        api_key = cloud_config.get('api_key')
-        api_secret = cloud_config.get('api_secret')
+        cloud_name = request.json.get('cloud_name')
+        api_key = request.json.get('api_key')
+        api_secret = request.json.get('api_secret')
 
         if not all([cloud_name, api_key, api_secret]):
             return jsonify({"error": "Cloudinary configuration is incomplete"}), 400
