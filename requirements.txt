@@ -1,0 +1,5 @@
+Flask
+requests
+cloudinary
+python-pptx
+uuid
